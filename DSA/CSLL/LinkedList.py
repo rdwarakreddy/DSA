@@ -13,7 +13,7 @@ class CSLinkedList:
     def __str__(self):
         temp_node = self.head
         result = ""
-        if self.length == 0:
+        if self.head is None:
             return "List is empty"
         while True:
             result += str(temp_node.value)
@@ -122,6 +122,45 @@ class CSLinkedList:
         self.length -= 1
         return temp_node.value
 
+    def PopAtEnd(self):
+        if self.head is None:
+            return "No elements in the List"
+        popped_node = self.tail
+        temp_node = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            while temp_node.next is not popped_node:
+                temp_node = temp_node.next
+            self.tail.next = None
+            self.tail = temp_node
+            self.tail.next = self.head
+        self.length -= 1
+
+    def RemoveAnyValue(self, index):
+        temp_node = self.head
+        if self.head is None:
+            return "No elements in the List"
+        if index < 0 or index >= self.length:
+            return "Index is out of range"
+        if index == 0:
+            return self.PopFirst()
+        for i in range(index - 1):
+            temp_node = temp_node.next
+        popped_node = temp_node.next
+        if popped_node == self.tail:
+            self.tail = temp_node
+        temp_node.next = popped_node.next
+        popped_node.next = None
+        self.length -= 1
+        return popped_node.value
+
+    def deleteAllNodes(self):
+        self.tail.next = None
+        self.head = None
+        self.tail = None
+
 
 csLL = CSLinkedList()
 csLL.appendAtLast(10)
@@ -129,11 +168,5 @@ csLL.appendAtLast(20)
 csLL.appendAtLast(30)
 csLL.appendAtLast(50)
 print(csLL)
-print(csLL.PopFirst())
-print(csLL)
-print(csLL.PopFirst())
-print(csLL)
-print(csLL.PopFirst())
-print(csLL)
-print(csLL.PopFirst())
+print(csLL.deleteAllNodes())
 print(csLL)
