@@ -41,6 +41,7 @@ class DoubleLinkedList:
             new_node.next = self.head
             self.head.prev = new_node
             self.head = new_node
+        self.length += 1
 
     def Travsersal(self):
         temp_node = self.head
@@ -54,6 +55,26 @@ class DoubleLinkedList:
             print(temp_node.value)
             temp_node = temp_node.prev
 
+    def SearchWithIndex(self, index):
+        if index > self.length - 1 or index < 0:
+            print("Index Out of Range")
+        else:
+            temp_node = self.head
+            for i in range(index):
+                temp_node = temp_node.next
+            print(temp_node.value)
+
+    def SearchwithValue(self, value):
+        temp_node = self.head
+        index = 0
+        while temp_node is not None:
+            if temp_node.value == value:
+                print(index)
+                break
+            else:
+                temp_node = temp_node.next
+                index += 1
+
 
 DLL = DoubleLinkedList()
 DLL.appendAtBegining(0)
@@ -61,4 +82,4 @@ DLL.appendAtBegining(1)
 DLL.appendAtBegining(2)
 DLL.appendAtBegining(3)
 print(DLL)
-DLL.ReverseTraversal()
+DLL.SearchwithValue(1)
