@@ -75,6 +75,21 @@ class DoubleLinkedList:
                 temp_node = temp_node.next
                 index += 1
 
+    def UpdateValueWithIndex(self, index, value):
+        temp_node = self.head
+        for i in range(index):
+            temp_node = temp_node.next
+        temp_node.value = value
+
+    def UpdateValueWithValue(self, value, number):
+        temp_node = self.head
+        while temp_node is not None:
+            if temp_node.value == value:
+                temp_node.value = number
+                break
+            else:
+                temp_node = temp_node.next
+
 
 DLL = DoubleLinkedList()
 DLL.appendAtBegining(0)
@@ -82,4 +97,5 @@ DLL.appendAtBegining(1)
 DLL.appendAtBegining(2)
 DLL.appendAtBegining(3)
 print(DLL)
-DLL.SearchwithValue(1)
+DLL.UpdateValueWithValue(1, 10)
+print(DLL)
