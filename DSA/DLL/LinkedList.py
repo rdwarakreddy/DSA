@@ -90,12 +90,33 @@ class DoubleLinkedList:
             else:
                 temp_node = temp_node.next
 
+    def Insert(self, index, value):
+        new_node = Node(value)
+        if index == 0:
+            self.appendAtBegining(value)
+            return
+        elif index == self.length:
+            self.appendAtEnd(value)
+            return
+        elif index < 0:
+            print("Index Out of range")
+            return
+        else:
+            temp_node = self.head
+            for i in range(index - 1):
+                temp_node = temp_node.next
+            new_node.next = temp_node.next
+            new_node.prev = temp_node
+            temp_node.next.prev = new_node
+            temp_node.next = new_node
+        self.length += 1
+
 
 DLL = DoubleLinkedList()
-DLL.appendAtBegining(0)
-DLL.appendAtBegining(1)
-DLL.appendAtBegining(2)
-DLL.appendAtBegining(3)
+DLL.appendAtEnd(0)
+DLL.appendAtEnd(1)
+DLL.appendAtEnd(2)
+DLL.appendAtEnd(3)
 print(DLL)
-DLL.UpdateValueWithValue(1, 10)
+DLL.Insert(-2, 200)
 print(DLL)
