@@ -73,13 +73,35 @@ class CircularDoubleLinkedList:
                 print(temp_node.value)
                 break
 
+    def SearchWithValue(self, value):
+        if self.length == 0:
+            return None
+        temp_node = self.head
+        index = 0
+        while temp_node is not None:
+            if temp_node.value == value:
+                return index
+            else:
+                temp_node = temp_node.next
+                if temp_node == self.head:
+                    break
+                index += 1
+
+    def SearchWithIndex(self, index):
+        temp_node = self.head
+        for i in range(index):
+            temp_node = temp_node.next
+            if temp_node == self.head:
+                break
+        return temp_node.value
+
 
 CDLL = CircularDoubleLinkedList()
-CDLL.appendAtBegining(0)
+CDLL.appendAtBegining(10)
 CDLL.appendAtLast(1)
 CDLL.appendAtLast(2)
-CDLL.appendAtLast(3)
+CDLL.appendAtLast(300)
 CDLL.appendAtLast(4)
 CDLL.appendAtLast(5)
 print(CDLL)
-CDLL.ReversalTraversal()
+print(CDLL.SearchWithIndex(3))
