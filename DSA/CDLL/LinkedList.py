@@ -55,6 +55,24 @@ class CircularDoubleLinkedList:
             self.tail.next = self.head
         self.length += 1
 
+    def Traversal(self):
+        temp_node = self.head
+        while temp_node is not None:
+            print(temp_node.value)
+            temp_node = temp_node.next
+            if temp_node == self.head:
+                print(temp_node.value)
+                break
+
+    def ReversalTraversal(self):
+        temp_node = self.tail
+        while temp_node is not None:
+            print(temp_node.value)
+            temp_node = temp_node.prev
+            if temp_node == self.tail:
+                print(temp_node.value)
+                break
+
 
 CDLL = CircularDoubleLinkedList()
 CDLL.appendAtBegining(0)
@@ -64,3 +82,4 @@ CDLL.appendAtLast(3)
 CDLL.appendAtLast(4)
 CDLL.appendAtLast(5)
 print(CDLL)
+CDLL.ReversalTraversal()
