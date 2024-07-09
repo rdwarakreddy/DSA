@@ -111,6 +111,36 @@ class DoubleLinkedList:
             temp_node.next = new_node
         self.length += 1
 
+    def PopAtFirst(self):
+        if self.length == 0:
+            print("List is empty")
+            return None
+        popped_node = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+            popped_node.next = None
+        self.length -= 1
+        return popped_node.value
+
+    def PopAtEnd(self):
+        if self.length == 0:
+            print("List is empty")
+            return None
+        popped_node = self.tail
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.tail = self.tail.prev
+            self.tail.next = None
+            popped_node.prev = None
+        self.length -= 1
+        return popped_node.value
+
 
 DLL = DoubleLinkedList()
 DLL.appendAtEnd(0)
@@ -118,5 +148,13 @@ DLL.appendAtEnd(1)
 DLL.appendAtEnd(2)
 DLL.appendAtEnd(3)
 print(DLL)
-DLL.Insert(-2, 200)
+print(DLL.PopAtEnd())
+print(DLL)
+print(DLL.PopAtEnd())
+print(DLL)
+print(DLL.PopAtEnd())
+print(DLL)
+print(DLL.PopAtEnd())
+print(DLL)
+print(DLL.PopAtEnd())
 print(DLL)
