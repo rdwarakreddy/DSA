@@ -42,11 +42,23 @@ class DoubleLinkedList:
             self.head.prev = new_node
             self.head = new_node
 
+    def Travsersal(self):
+        temp_node = self.head
+        while temp_node is not None:
+            print(temp_node.value)
+            temp_node = temp_node.next
+
+    def ReverseTraversal(self):
+        temp_node = self.tail
+        while temp_node is not None:
+            print(temp_node.value)
+            temp_node = temp_node.prev
+
 
 DLL = DoubleLinkedList()
 DLL.appendAtBegining(0)
 DLL.appendAtBegining(1)
 DLL.appendAtBegining(2)
 DLL.appendAtBegining(3)
-
 print(DLL)
+DLL.ReverseTraversal()
