@@ -32,10 +32,21 @@ class DoubleLinkedList:
             self.tail = new_node
         self.length += 1
 
+    def appendAtBegining(self, value):
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+
 
 DLL = DoubleLinkedList()
-DLL.appendAtEnd(1)
-DLL.appendAtEnd(2)
-DLL.appendAtEnd(3)
+DLL.appendAtBegining(0)
+DLL.appendAtBegining(1)
+DLL.appendAtBegining(2)
+DLL.appendAtBegining(3)
 
 print(DLL)
