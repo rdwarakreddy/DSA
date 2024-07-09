@@ -7,6 +7,9 @@ class Node:
     def __str__(self):
         return f"{self.prev}<--{self.value}-->{self.next}"
 
+    def __str__(self):
+        return f"{self.prev}<--{self.value}-->{self.next}"
+
 
 new_node = Node(10)
 print(new_node)
