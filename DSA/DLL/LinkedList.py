@@ -141,6 +141,22 @@ class DoubleLinkedList:
         self.length -= 1
         return popped_node.value
 
+    def Remove(self, index):
+        if index < 0 or index > self.length:
+            return None
+        if index == 0:
+            return self.PopAtFirst()
+        if index == self.length:
+            return self.PopAtEnd()
+        else:
+            popped_node = self.head
+            for i in range(index):
+                popped_node = popped_node.next
+            popped_node.prev.next = popped_node.next
+            popped_node.next.prev = popped_node.prev
+            popped_node.prev = None
+            popped_node.next = None
+
 
 DLL = DoubleLinkedList()
 DLL.appendAtEnd(0)
