@@ -32,6 +32,9 @@ class Stack:
         else:
             return self.list[-1]
 
+    def delete(self):
+        self.list = None
+
 
 cs = Stack()
 print(cs.isEmpty())
