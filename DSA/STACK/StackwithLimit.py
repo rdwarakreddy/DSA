@@ -47,15 +47,11 @@ class Stack:
 
 
 cs = Stack(5)
-print(cs.isEmpty())
-print(cs.isFull())
 cs.push(1)
 cs.push(2)
 cs.push(3)
 cs.push(4)
 cs.push(5)
 print(cs)
-print(cs.isEmpty())
-print(cs.isFull())
 (cs.Pop())
 print(cs)
