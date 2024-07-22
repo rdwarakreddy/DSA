@@ -42,3 +42,6 @@ def postOrder(RootNode):
     postOrder(RootNode.leftChild)
     postOrder(RootNode.rightChild)
     print(RootNode.data)
+
+
+postOrder(newBT)
