@@ -45,4 +45,3 @@ high = 15
 L = List()
 L.ArraytoTree(a)
 print(L.get_list())  # Print node values including None
-print(L.RangeSum(low, high))  # Print the sum of node values within the range
